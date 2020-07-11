@@ -1,6 +1,23 @@
 <?php
 
+use Illuminate\Support\Env;
+
 return [
+
+    'api' => [
+            'url_base' => Env::get('API_URL', 'https://api.themoviedb.org'),
+            'key'      => Env::get('API_KEY', 'cbf1f4f5aa8a66558cf7a525c97ab54b')
+        ],
+    'uri' => [
+        'movie' => [
+            'popular' => '/3/movie/popular?api_key='
+        ],
+    ],
+    'params' => [
+        'lingua' => [
+            'portugues' => 'language=pt-BR'
+        ],
+    ],
 
     /*
     |--------------------------------------------------------------------------

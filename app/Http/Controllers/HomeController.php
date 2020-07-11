@@ -2,18 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Service\FilmeService;
 
 class HomeController extends Controller
 {
+     /**
+     * @var FilmeService;
+     */
+    protected $filmeService;
+
     /**
-     * Create a new controller instance.
-     *
+     * 
      * @return void
      */
-    public function __construct()
+    public function __construct(FilmeService $filmeService)
     {
         $this->middleware('auth');
+        $this->filmeService = $filmeService;
     }
 
     /**
@@ -22,7 +27,10 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
-        return view('home');
+    {   
+        $filmes = $this->filmeService->buscaFilmesPopulares();
+
+        return View('home', ['filmes' => $filmes]);
+        // return view('home');
     }
 }
