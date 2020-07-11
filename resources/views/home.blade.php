@@ -15,6 +15,12 @@
                     @endif
                     {{ __('Bem-vindo ao WebMoviesAPP!') }}
                 </div>
+                @foreach($filmesPopulares as $filmePopular)
+                    <div>
+                        <h1>{{ $filmePopular->title }}</h1>
+                        <p>{{ $filmePopular->overview }}</p>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>

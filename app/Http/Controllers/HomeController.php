@@ -28,9 +28,8 @@ class HomeController extends Controller
      */
     public function index()
     {   
-        $filmes = $this->filmeService->buscaFilmesPopulares();
+        $filmesPopulares = $this->filmeService->buscaFilmesPopulares();
 
-        return View('home', ['filmes' => $filmes]);
-        // return view('home');
+        return View('home', ['filmesPopulares' => $filmesPopulares]);
     }
 }

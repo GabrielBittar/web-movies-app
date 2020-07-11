@@ -19,11 +19,11 @@ class FilmeService
         $this->filmeRepository = $filmeRepository;
     }
 
-    public function buscaFilmesPopulares()
+    public function buscaFilmesPopulares(): array
     {
         $filmesPopulares = Http::get(Config::get('app.api.url_base') . Config::get('app.uri.movie.popular')
          . Config::get('app.api.key') . "&" . Config::get('app.params.lingua.portugues'));
-         
+
         $filmesPopulares = json_decode($filmesPopulares);
 
         return $filmesPopulares->results;
